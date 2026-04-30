@@ -101,29 +101,23 @@ def get_trips():
 # Called when frontend submits the Add Trip form
 # "trip: Trip" means FastAPI will read the request body
 # and validate it against our Trip model above
+# CORRECT ✅
 @app.post("/trips")
 def add_trip(trip: Trip):
 
-    # We need to modify the global id_counter variable
-    global id_counters
+    global id_counter        # ← must be FIRST line in function
+                             # before you use id_counter anywhere
 
-    # Build a dictionary with all trip data + a unique ID
     new_trip = {
-        "id"          : id_counter,   # assign current ID
+        "id"          : id_counter,
         "location"    : trip.location,
         "date"        : trip.date,
         "description" : trip.description
     }
 
-    # Save it to our in-memory list
     trips_db.append(new_trip)
-
-    # Increase counter so next trip gets a different ID
     id_counter += 1
-
-    # Return the saved trip — frontend needs the ID for delete/update later
     return new_trip
-
 
 # --- PATCH /trips/{trip_id} ---
 # Called when user edits a trip
