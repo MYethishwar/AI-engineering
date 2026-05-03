@@ -8,7 +8,7 @@ function App() {
   const [tripId, setTripId] = useState("");
   const [singleTrip, setSingleTrip] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
   getTrips();
   }, []);
 
@@ -50,8 +50,8 @@ function App() {
 
     const data = await res.json();
 
-    // Show result
-    alert(data.message || data.error);
+    
+    alert(data.message || data.error); //Telling user that data is deleted
 
     // Remove deleted trip from UI instantly (without reload)
     setTrips((prevTrips) =>
@@ -61,8 +61,8 @@ function App() {
     // Clear selected trip view
     setSingleTrip(null);
 
-    // Clear input field
-    setTripId("");
+    
+    setTripId(""); //This line deletes the trip instantly from the UI
   } catch (error) {
     console.error("Error deleting trip:", error);
   }

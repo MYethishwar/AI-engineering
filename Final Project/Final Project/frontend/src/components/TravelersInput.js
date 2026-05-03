@@ -1,6 +1,3 @@
-// TravelersInput.js
-// Manage list of people who traveled with you
-// travelers is array of { name, relation }
 
 import React, { useState } from "react";
 

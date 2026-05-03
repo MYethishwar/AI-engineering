@@ -12,9 +12,9 @@ function App() {
 
         <div style={{ padding: "20px", width: "100%", color: "black" }}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<Home />} />         # If URL is '/' show home
+            <Route path="/about" element={<About />} />  # if URLl is '/about' show about
+            <Route path="/contact" element={<Contact />} />  #if URL is '/contact' show contact
           </Routes>
         </div>
       </div>

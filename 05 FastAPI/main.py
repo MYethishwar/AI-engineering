@@ -29,7 +29,7 @@ users = []
 
 # ------------------ GET ROUTES ------------------
 
-# 1. Get all trips
+# 1. Get all trips    http://localhost:8000/trips
 @app.get("/trips")
 def get_all_trips():
     return trips
@@ -53,7 +53,7 @@ def get_users():
 # 1. Add a new trip
 @app.post("/trips")
 def add_trip(trip: Trip):
-    trips.append(trip)
+    trips.append(trip)  
     return {"message": "Trip added", "data": trip}
 
 # 2. Register a user
